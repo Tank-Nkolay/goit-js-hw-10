@@ -26,6 +26,3 @@ function timeHandler(currentTime) {
 timeHandler(currentTime);
 
 player.setCurrentTime(parsedCurrentTime);
-
-// ===========================================================================
-// ===========================================================================
