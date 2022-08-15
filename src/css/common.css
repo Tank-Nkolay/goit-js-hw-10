@@ -20,13 +20,13 @@ img {
 /* добавил стили */
 
 input {
-  font-size: 40px;
+  font-size: 24px;
   padding: 5px;
   color: gray;
 }
 
 button {
-  font-size: 44px;
+  font-size: 20px;
   margin-bottom: 5px;
   color: green;
 }
