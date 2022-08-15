@@ -16,3 +16,30 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* добавил стили */
+
+input {
+  font-size: 40px;
+  padding: 5px;
+  color: gray;
+}
+
+button {
+  font-size: 44px;
+  margin-bottom: 5px;
+  color: green;
+}
+
+.timer {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+}
+
+.value {
+  font-weight: 700;
+  font-size: 44px;
+  color: tomato;
+}
