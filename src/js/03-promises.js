@@ -22,15 +22,14 @@ function createPromise(position, delay) {
 }
 
 // функция ГЕНЕРИРОВАНИЯ КОЛИЧЕСТВА ПРОМИС =====================================
-function onFormSubmit(event) {
-  event.preventDefault();
-  delay = Number(event.currentTarget.delay.value);
-  step = Number(event.currentTarget.step.value);
-  amount = Number(event.currentTarget.amount.value);
+function onSubmitBtn(e) {
+  e.preventDefault();
+  delay = Number(e.currentTarget.delay.value);
+  step = Number(e.currentTarget.step.value);
+  amount = Number(e.currentTarget.amount.value);
   if (delay >= 0 && step >= 0 && amount > 0) {
-    for (let position = 1; position <= amount; position += 1) {
-      delay += step;
-      createPromise(position, delay)
+    for (let i = 1; i <= amount; i += 1) {
+      createPromise(i, delay)
         .then(({ position, delay }) => {
           Notiflix.Notify.success(
             `✅ Fulfilled promise ${position} in ${delay}ms`
@@ -41,11 +40,14 @@ function onFormSubmit(event) {
             `❌ Rejected promise ${position} in ${delay}ms`
           );
         });
+      delay += step;
     }
   } else {
-    Notiflix.Notify.warning('Put value > 0');
+    Notiflix.Notify.warning('Данные в полях, должны быть больше нуля', {
+      position: 'center-top',
+    });
   }
 }
 
 // ИНИЦИИРУЕМ =====================================================================
-form.addEventListener('submit', onFormSubmit);
+form.addEventListener('submit', onSubmitBtn);

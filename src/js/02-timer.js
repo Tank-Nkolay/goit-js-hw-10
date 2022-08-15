@@ -41,7 +41,9 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] <= new Date()) {
       startBtn.disabled = true;
-      Notiflix.Notify.failure('Please choose a date in the future');
+      Notiflix.Notify.failure('Please choose a date in the future', {
+        position: 'center-top',
+      });
     }
   },
 };
@@ -59,7 +61,7 @@ function onStartTimer() {
       minutes.textContent = addLeadingZero(time.minutes);
       seconds.textContent = addLeadingZero(time.seconds);
     } else if (countDiff <= 1) {
-      Notiflix.Notify.success('FINISH');
+      Notiflix.Notify.success('FINISH', { position: 'center-top' });
       clearInterval(timerId);
     }
   }, 1000);
