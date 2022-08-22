@@ -26,15 +26,15 @@ function onFormInput(e) {
 
   fetchCountries(inputData)
     .then(country => {
-      if (country.length > 10) {
-        lotsOfData();
+      if (country.length === 1) {
+        renderCountryInfo(country);
       } else if (country.length > 1 && country.length <= 10) {
         renderCountryList(country);
-      } else if (country.length === 1) {
-        renderCountryInfo(country);
+      } else if (country.length > 10) {
+        lotsOfData();
       }
     })
-    .catch(onError());
+    .catch(onError);
 }
 
 function onError() {
