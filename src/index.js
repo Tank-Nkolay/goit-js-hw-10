@@ -27,7 +27,7 @@ function onFormInput(e) {
   fetchCountries(inputData)
     .then(country => {
       if (country.length > 10) {
-        tooManyMathes();
+        lotsOfData();
       } else if (country.length > 1 && country.length <= 10) {
         renderCountryList(country);
       } else if (country.length === 1) {
@@ -42,7 +42,7 @@ function onError() {
     position: 'center-top',
   });
 }
-function tooManyMathes() {
+function lotsOfData() {
   Notiflix.Notify.info(
     'Too many matches found. Please enter a more specific name.',
     { position: 'center-top' }
