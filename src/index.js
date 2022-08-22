@@ -34,10 +34,10 @@ function onFormInput(e) {
         renderCountryInfo(country);
       }
     })
-    .catch(onFetchError);
+    .catch(onError());
 }
 
-function onFetchError(error) {
+function onError() {
   Notiflix.Notify.warning('Oops, there is no country with that name', {
     position: 'center-top',
   });
