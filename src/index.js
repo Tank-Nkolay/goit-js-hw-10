@@ -19,18 +19,19 @@ function onFormInput(e) {
   countryList.innerHTML = '';
   countryInfo.innerHTML = '';
 
-  const inputCountry = input.value.trim();
-  if (inputCountry === '') {
+  const inputData = input.value.trim();
+  if (inputData === '') {
     return;
   }
-  fetchCountries(inputCountry)
+
+  fetchCountries(inputData)
     .then(country => {
-      if (country.length === 1) {
-        renderCountryInfo(country);
-      } else if (country.length <= 2 && country.length <= 10) {
-        renderCountryList(country);
-      } else if (country.length > 10) {
+      if (country.length > 10) {
         tooManyMathes();
+      } else if (country.length > 1 && country.length <= 10) {
+        renderCountryList(country);
+      } else if (country.length === 1) {
+        renderCountryInfo(country);
       }
     })
     .catch(onFetchError);
