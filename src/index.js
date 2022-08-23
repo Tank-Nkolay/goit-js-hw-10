@@ -25,9 +25,9 @@ function onFormInput(e) {
   fetchCountries(inputData)
     .then(country => {
       if (country.length === 1) {
-        renderCountryInfo(country);
+        createCountryInfo(country);
       } else if (country.length > 1 && country.length <= 10) {
-        renderCountryList(country);
+        createCountryList(country);
       } else if (country.length > 10) {
         onInputLotsOfData();
       }
@@ -47,22 +47,20 @@ function onInputLotsOfData() {
   );
 }
 
-// ===========================================================
-
-function renderCountryList(country) {
-  const markUpCountryList = country
+function createCountryList(e) {
+  const showCountry = e
     .map(({ name, flags }) => {
-      return `<li class="country-list__new-country">
-        <img class="country-list__country-flag" src='${flags.svg}' width="150" alt='Flag of ${name.official}'>
-        <h2 class="country-list__item--name">${name.official}</h2>
+      return `<li class="country-list__item">
+        <img class="country-list__item--img" src='${flags.svg}' alt='Flag of ${name.official}' width="100">
+        <h2 class="country-list__item--header">${name.official}</h2>
         </li>`;
     })
     .join('');
-  countryList.insertAdjacentHTML('beforeend', markUpCountryList);
+  countryList.insertAdjacentHTML('beforeend', showCountry);
 }
-
-function renderCountryInfo([{ name, flags, capital, population, languages }]) {
-  const markUpCountryInfo = ` <ul class="country-info__list">
+// ===========================================================
+function createCountryInfo([{ name, flags, capital, population, languages }]) {
+  const showAllCountryInfo = ` <ul class="country-info__list">
             <li class="country-info__item">
               <img class="country-info__item--flag" src="${
                 flags.svg
@@ -76,5 +74,5 @@ function renderCountryInfo([{ name, flags, capital, population, languages }]) {
             ).join(', ')}</li>
         </ul>`;
 
-  countryInfo.insertAdjacentHTML('beforeend', markUpCountryInfo);
+  countryInfo.insertAdjacentHTML('beforeend', showAllCountryInfo);
 }

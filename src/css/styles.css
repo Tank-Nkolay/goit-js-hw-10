@@ -21,20 +21,26 @@ body {
 
 /* ====================================================== */
 
-.country-list {
-  list-style: none;
-}
-.country-list__new-country {
-  display: flex;
-}
-.country-list__country-flag {
-  margin-right: 20px;
-  margin-bottom: 20px;
+#search-box {
+  margin-left: 40px;
 }
 
-.country-list__item--name {
-  font-size: xx-large;
+.country-list__item {
+  display: flex;
+  margin-bottom: 15px;
 }
+
+.country-list__item--img {
+  margin-right: 20px;
+}
+
+.country-list__item--header {
+  font-size: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* my ====================================================== */
 
 .country-info__list {
   list-style: none;
