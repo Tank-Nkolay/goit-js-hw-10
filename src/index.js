@@ -11,7 +11,7 @@ const countryInfo = document.querySelector('.country-info');
 
 input.addEventListener('input', debounce(onFormInput, DEBOUNCE_DELAY));
 
-// функция - обработки вводимых данных по количеству символов ========================================
+// функция - обработки вводимых данных по количеству символов ==========================================
 function onFormInput(e) {
   e.preventDefault();
   countryList.innerHTML = '';
