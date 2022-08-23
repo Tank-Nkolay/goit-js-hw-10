@@ -64,8 +64,8 @@ function createCountryInfo([{ name, flags, capital, population, languages }]) {
             <li class="country-info__item">
               <img class="country-info__item--flag" src="${
                 flags.svg
-              }" width="150" alt="Flag of ${name.official}">
-              <h2 class="country-info__item--name">${name.official}</h2>
+              }" alt="Flag of ${name.official}" width="150">
+              <h2 class="country-info__item--header">${name.official}</h2>
             </li>
             <li class="country-info__item"><span class="country-info__item--categories">Capital: </span>${capital}</li>
             <li class="country-info__item"><span class="country-info__item--categories">Population: </span>${population}</li>

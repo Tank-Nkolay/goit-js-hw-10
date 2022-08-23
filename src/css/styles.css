@@ -19,7 +19,7 @@ body {
   margin-bottom: 16px;
 }
 
-/* ====================================================== */
+/* my styles for function createCountryList ================================= */
 
 #search-box {
   margin-left: 40px;
@@ -40,7 +40,7 @@ body {
   margin-bottom: auto;
 }
 
-/* my ====================================================== */
+/*  =========================================== */
 
 .country-info__list {
   list-style: none;
