@@ -11,9 +11,9 @@ const countryInfo = document.querySelector('.country-info');
 
 input.addEventListener('input', debounce(onFormInput, DEBOUNCE_DELAY));
 
+// функция - обработки вводимых данных по количеству символов ========================================
 function onFormInput(e) {
   e.preventDefault();
-
   countryList.innerHTML = '';
   countryInfo.innerHTML = '';
 
@@ -35,11 +35,14 @@ function onFormInput(e) {
     .catch(onError);
 }
 
+// функция - оповещение НЕТ СТРАН ДЛЯ ВЫВОДА ====================================================
 function onError() {
   Notiflix.Notify.warning('Oops, there is no country with that name', {
     position: 'center-top',
   });
 }
+
+// функция - оповещение СЛИШКОМ МНОГО СТРАН ДЛЯ ВЫВОДА ====================================================
 function onInputLotsOfData() {
   Notiflix.Notify.info(
     'Too many matches found. Please enter a more specific name.',
@@ -47,6 +50,7 @@ function onInputLotsOfData() {
   );
 }
 
+// функция - добавить разметку список СТРАН ====================================================
 function createCountryList(e) {
   const showCountry = e
     .map(({ name, flags }) => {
@@ -58,21 +62,22 @@ function createCountryList(e) {
     .join('');
   countryList.insertAdjacentHTML('beforeend', showCountry);
 }
-// ===========================================================
-function createCountryInfo([{ name, flags, capital, population, languages }]) {
-  const showAllCountryInfo = ` <ul class="country-info__list">
-            <li class="country-info__item">
-              <img class="country-info__item--flag" src="${
-                flags.svg
-              }" alt="Flag of ${name.official}" width="150">
-              <h2 class="country-info__item--header">${name.official}</h2>
-            </li>
-            <li class="country-info__item"><span class="country-info__item--categories">Capital: </span>${capital}</li>
-            <li class="country-info__item"><span class="country-info__item--categories">Population: </span>${population}</li>
-            <li class="country-info__item"><span class="country-info__item--categories">Languages: </span>${Object.values(
-              languages
-            ).join(', ')}</li>
-        </ul>`;
 
+// функция - добавить разметку поной информация СТРАНА ====================================================
+function createCountryInfo([{ name, flags, capital, population, languages }]) {
+  const showAllCountryInfo = ` 
+            <div class="country-info__cont">
+              <img class="country-info__item--img" src="${
+                flags.svg
+              }" alt="Flag of ${name.official}" width="100">
+              <h2 class="country-info__item--header">${name.official}</h2>
+            </div>
+            <ul class="country-info__list">
+                <li class="country-info__item"><span>Capital: </span>${capital}</li>
+                <li class="country-info__item"><span>Population: </span>${population}</li>
+                <li class="country-info__item"><span>Languages: </span>${Object.values(
+                  languages
+                ).join(', ')}</li>
+            </ul>`;
   countryInfo.insertAdjacentHTML('beforeend', showAllCountryInfo);
 }

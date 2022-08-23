@@ -40,16 +40,28 @@ body {
   margin-bottom: auto;
 }
 
-/*  =========================================== */
+/* my styles for function showAllCountryInfo  =============================== */
+
+.country-info__cont {
+  display: flex;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
 
 .country-info__list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
 }
 .country-info__item {
-  font-size: x-large;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
-.country-info__item--categories {
-  font-size: x-large;
+
+.country-info__item--img {
+  margin-right: 10px;
+}
+
+.country-info__item--header {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 32px;
 }
