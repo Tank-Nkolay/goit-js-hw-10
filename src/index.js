@@ -11,8 +11,6 @@ const countryInfo = document.querySelector('.country-info');
 
 input.addEventListener('input', debounce(onFormInput, DEBOUNCE_DELAY));
 
-// ===========================================================
-
 function onFormInput(e) {
   e.preventDefault();
 
@@ -31,7 +29,7 @@ function onFormInput(e) {
       } else if (country.length > 1 && country.length <= 10) {
         renderCountryList(country);
       } else if (country.length > 10) {
-        lotsOfData();
+        onInputLotsOfData();
       }
     })
     .catch(onError);
@@ -42,12 +40,14 @@ function onError() {
     position: 'center-top',
   });
 }
-function lotsOfData() {
+function onInputLotsOfData() {
   Notiflix.Notify.info(
     'Too many matches found. Please enter a more specific name.',
     { position: 'center-top' }
   );
 }
+
+// ===========================================================
 
 function renderCountryList(country) {
   const markUpCountryList = country
